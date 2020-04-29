@@ -1,0 +1,7 @@
+logging:
+  level:
+    com:
+      alibaba:
+        cloud:
+          nacos:
+            client: debug

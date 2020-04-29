@@ -1,0 +1,15 @@
+server:
+  port: 8101
+
+spring:
+  application:
+    name: service-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 #默认是localhost:8848/
+        enabled: true #服务注册和发现开关，默认是true
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+

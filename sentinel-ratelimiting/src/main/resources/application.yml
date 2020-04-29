@@ -1,0 +1,24 @@
+server:
+  port: 8003
+
+spring:
+  application:
+    name: sentinel-rate-limiting
+  cloud:
+    sentinel:
+      transport: # sentinel dashboard
+        dashboard: 127.0.0.1:8080
+      datasource: # sentinel datasource nacos ：http://blog.didispace.com/spring-cloud-alibaba-sentinel-2-1/
+        ds:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            dataId: ${spring.application.name}-sentinel
+            groupId: DEFAULT_GROUP
+            rule-type: flow #定义存储的规则类型 详见org.springframework.cloud.alibaba.sentinel.datasource.RuleType
+
+logging:
+  level:
+    com:
+      alibaba:
+        cloud:
+          sentinel: debug

@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        prefix: example #配置文件前缀 默认是${spring.application.name}，配置优先级-最高
+        file-extension: yml #配置文件扩展名,默认是properties,DataID=${spring.cloud.nacos.config.prefix}.${spring.cloud.nacos.config.file-extension}
+        group: DEV_GROUP #配置文件组名,Group=${spring.cloud.nacos.config.group}
+#        namespace: 1bad6a02-c4ac-4bcd-9fd2-0fc361313d55 #命名空间，用于区分多种环境，如果设置了namespace，则要保证加载的所有配置文件都应该在该命名空间下
+        extension-configs: #加载扩展配置，如统一配置文件,配置优先级-中等
+          -
+            dataId: actuator.properties
+            group: DEFAULT_GROUP
+            refresh: true #是否支持动态刷新
+          -
+            dataId: log.properties
+            group: DEFAULT_GROUP
+            refresh: true
+        shared-configs: share.properties #加载共享配置，效果等同于extension-configs,是一种更便捷的方式，这时默认group=DEFAULT_GROUP，refresh=false，灵活配置推荐使用extension-configs，配置优先级-最低
+        refresh-enabled: true #配置文件动态更新总开关，默认是true

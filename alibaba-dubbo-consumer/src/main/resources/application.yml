@@ -1,0 +1,21 @@
+server:
+  port: 8005
+
+spring:
+  application:
+    name: alibaba-dubbo-consumer
+  cloud:
+    nacos: #nacos配置
+      discovery:
+        server-addr: 127.0.0.1:8848
+  main:
+    allow-bean-definition-overriding: true
+
+dubbo:
+  protocol:
+    name: dubbo #协议名称
+    port: -1 #协议端口，-1表示自增接口，从20880开始
+  registry:
+    address: spring-cloud://localhost
+  cloud:
+    subscribed-services: alibaba-dubbo-provider #要订阅服务的服务名

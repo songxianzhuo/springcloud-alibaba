@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        prefix: example #配置文件前缀 默认是应用名${spring.application.name}
+        file-extension: yml #配置文件扩展名,默认是properties
+        group: PROD_GROUP #配置文件组名
+        namespace: 83704210-2e3a-40cc-baa6-401df215961e #命名空间
